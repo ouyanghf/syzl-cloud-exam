@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
 * 新增模块演示
 *
-* @author 阿沐 babamu@126.com
+* @author syzl.net
 */
 @RestController
 @Tag(name="新增模块演示")
