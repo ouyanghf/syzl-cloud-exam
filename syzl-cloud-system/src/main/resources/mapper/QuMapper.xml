@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.syzl.qu.mapper.QuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.syzl.exams.qu.entity.Qu">
+        <id column="id" property="id" />
+        <result column="no" property="no" />
+        <result column="qu_type" property="quType" />
+        <result column="level" property="level" />
+        <result column="image" property="image" />
+        <result column="content" property="content" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="remark" property="remark" />
+        <result column="analysis" property="analysis" />
+        <result column="repoName" property="repoName" />
+        <result column="repoId" property="repoId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        `id`,`no`,`qu_type`,`level`,`image`,`content`,`create_time`,`update_time`,`remark`,`analysis`
+    </sql>
+
+
+    <!-- 随机取数据 -->
+    <select id="listByRandom" resultMap="BaseResultMap">
+        SELECT a.*,(SELECT GROUP_CONCAT(e.title)  FROM el_repo e, el_qu_repo po
+        where po.qu_id =a.id  and e.id = po.repo_id GROUP BY  po.qu_id) as repoName
+        FROM el_qu a
+        LEFT JOIN el_qu_repo b ON a.id=b.qu_id
+        WHERE b.repo_id=#{repoId} AND a.qu_type=#{quType}
+        <if test="excludes!=null">
+            AND a.id NOT IN
+            <foreach item="item" collection="excludes" separator="," open="(" close=")" index="">'${item}'</foreach>
+        </if>
+        ORDER BY RAND()
+        LIMIT ${size}
+    </select>
+
+    <!-- 随机取数据 -->
+    <select id="listByRepoId" resultMap="BaseResultMap">
+        SELECT a.*,(SELECT GROUP_CONCAT(e.title)  FROM el_repo e, el_qu_repo po
+        where po.qu_id =a.id  and e.id = po.repo_id GROUP BY  po.qu_id) as repoName
+        ,(SELECT GROUP_CONCAT(e.id)  FROM el_repo e, el_qu_repo po
+        where po.qu_id =a.id  and e.id = po.repo_id GROUP BY  po.qu_id) as repoId
+        FROM el_qu a
+        LEFT JOIN el_qu_repo b ON a.id=b.qu_id WHERE 1=1
+        <if test="repoId!=null and repoId!=''">
+            AND  b.repo_id=#{repoId}
+        </if>
+        ORDER BY a.no
+    </select>
+
+
+    <resultMap id="ExportResultMap" type="net.syzl.exams.qu.dto.export.QuExportDTO">
+        <id column="q_id" property="qId"  />
+        <result column="no" property="no"  />
+        <result column="qu_type" property="quType"  />
+        <result column="q_content" property="qContent"  />
+        <result column="q_analysis" property="qAnalysis"  />
+        <result column="a_is_right" property="aIsRight"  />
+        <result column="a_content" property="aContent"  />
+        <result column="a_analysis" property="aAnalysis"  />
+        <result column="a_analysis" property="aAnalysis"  />
+        <result column="a_item_score" property="aItemScore"  />
+        <collection property="repoList" column="q_id" select="selectRepos"/>
+    </resultMap>
+
+<!--    <select id="selectRepos" resultType="String">-->
+<!--		SELECT repo_id FROM el_qu_repo po WHERE po.qu_id=#{qId}-->
+<!--	</select>-->
+
+
+    <sql id="query">
+        <where>
+            <if test="query!=null">
+                <if test="query.quType!=null">
+                    AND q.qu_type = #{query.quType}
+                </if>
+                <if test="query.repoIds!=null and query.repoIds.size()>0">
+                    AND po.repo_id IN
+                    <foreach collection="query.repoIds" open="(" close=")" separator="," item="repoId">#{repoId}</foreach>
+                </if>
+
+                <if test="query.content!=null and query.content!=''">
+                    AND q.content LIKE CONCAT('%',#{query.content},'%')
+                </if>
+
+                <if test="query.excludes!=null and query.excludes.size()>0">
+                    AND q.id NOT IN
+                    <foreach collection="query.excludes" open="(" close=")" separator="," item="quId">
+                    #{quId}
+                    </foreach>
+                </if>
+            </if>
+        </where>
+    </sql>
+
+    <select id="paging" resultMap="BaseResultMap">
+        SELECT q.*,	(SELECT GROUP_CONCAT(e.title)  FROM  el_repo e, el_qu_repo po
+        where po.qu_id =q.id  and e.id = po.repo_id GROUP BY  po.qu_id) as repoName
+        FROM el_qu q
+        LEFT JOIN el_qu_repo po ON q.id=po.qu_id
+        <include refid="query" />
+        GROUP BY q.id ORDER BY q.update_time DESC
+    </select>
+
+
+    <select id="listForExport" resultMap="ExportResultMap">
+        SELECT
+        q.id as q_id,
+        q.no,
+        q.qu_type,
+        q.content AS q_content,
+        q.analysis as q_analysis,
+        a.content as a_content,
+        a.is_right as a_is_right,
+        a.analysis as a_analysis,
+        a.item_score as a_itemScore
+        FROM el_qu q
+        LEFT JOIN el_qu_answer a ON q.id=a.qu_id
+        LEFT JOIN el_qu_repo po ON q.id=po.qu_id
+        <include refid="query" />
+        GROUP BY a.id ORDER BY q.id
+        LIMIT 10000
+    </select>
+    <select id="quSelect" resultType="net.syzl.exams.qu.dto.QuDTO">
+        SELECT q.*,	(SELECT GROUP_CONCAT(e.title)  FROM  el_repo e, el_qu_repo po
+        where po.qu_id =q.id  and e.id = po.repo_id GROUP BY  po.qu_id) as repoName
+        FROM el_qu q
+        LEFT JOIN el_qu_repo po ON q.id=po.qu_id  where 1=1
+        <if test="query.repoId!=null and query.repoId!=''">
+            AND po.repo_id =#{query.repoId}
+        </if>
+        <if test="query.no!=null and query.no!=''">
+            AND q.no=#{query.no}
+        </if>
+
+        <if test="query.title!=null and query.title!=''">
+            AND q.content LIKE CONCAT('%',#{query.title},'%')
+        </if>
+        GROUP BY q.id ORDER BY q.no ASC
+    </select>
+
+</mapper>

@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  syzl-cloud-gateway:
+    image: syzlnet:1.0
+    container_name: syzl-cloud-gateway
+    ports:
+      - 8080:8080
+    volumes:
+      - /work/www/syzl-cloud/syzl-cloud-gateway.jar:/app/app.jar
+  syzl-cloud-system:
+    image: syzlnet:1.0
+    container_name: syzl-cloud-system
+    volumes:
+      - /work/www/syzl-cloud/syzl-cloud-system.jar:/app/app.jar

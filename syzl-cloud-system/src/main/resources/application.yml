@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: syzl-cloud-system
+  cloud:
+    nacos:
+      username: @nacos.username@
+      password: @nacos.password@
+      discovery:
+        server-addr: @nacos.server-addr@
+        namespace: @nacos.namespace@
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+  config:
+    import:
+      - optional:nacos:syzl-datasource.yaml
+
+
+storage:
+  enabled: true
+  config:
+    # 存储类型：local、aliyun、tencent、qiniu、huawei、minio
+    type: local
+    domain: http://localhost:8080
+  local:
+    path: D://upload
