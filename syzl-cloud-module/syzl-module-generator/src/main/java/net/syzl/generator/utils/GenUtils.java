@@ -19,9 +19,8 @@ import java.util.List;
 
 /**
  * 代码生成器 工具类
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 @Slf4j
 public class GenUtils {

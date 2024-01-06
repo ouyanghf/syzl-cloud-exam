@@ -16,9 +16,8 @@ import java.util.List;
 
 /**
  * 项目名变更
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 @RestController
 @RequestMapping("syzl-generator/gen/project")

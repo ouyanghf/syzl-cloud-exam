@@ -11,9 +11,8 @@ import java.sql.SQLException;
 
 /**
  * 代码生成器 数据源
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 @Data
 @Slf4j

@@ -8,9 +8,8 @@ import java.util.Date;
 
 /**
  * 字段类型管理
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 @Data
 @TableName("gen_field_type")

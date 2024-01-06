@@ -7,9 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 基类管理
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 @Mapper
 @InterceptorIgnore(tenantLine = "true")

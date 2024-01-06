@@ -10,9 +10,8 @@ import java.util.Set;
 
 /**
  * 字段类型管理
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 public interface FieldTypeService extends BaseService<FieldTypeEntity> {
     PageResult<FieldTypeEntity> page(Query query);

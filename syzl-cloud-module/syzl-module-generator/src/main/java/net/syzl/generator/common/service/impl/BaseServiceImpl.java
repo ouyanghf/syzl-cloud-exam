@@ -13,9 +13,8 @@ import net.syzl.generator.common.service.BaseService;
 
 /**
  * 基础服务类，所有Service都要继承
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> implements BaseService<T> {
 

@@ -5,13 +5,13 @@
 		<p>使用门槛极低，采用MIT开源协议，完全免费开源且终身免费，可免费用于商业项目等场景</p>
 		<p>目前已实现maku-admin后端接口的有：【MakuBoot】和【MakuCloud】2个后端开源项目。</p>
 		<p>
-			演示环境：<el-link href="https://demo.maku.net/maku-admin" :underline="false" type="primary" target="_blank">
-				https://demo.maku.net/maku-admin</el-link
+			演示环境：<el-link href="https://demo.syzl.net/maku-admin" :underline="false" type="primary" target="_blank">
+				https://demo.syzl.net/maku-admin</el-link
 			>
 		</p>
 		<p>
-			开发文档：<el-link href="https://maku.net/docs/maku-admin" :underline="false" type="primary" target="_blank">
-				https://maku.net/docs/maku-admin</el-link
+			开发文档：<el-link href="https://syzl.net/docs/maku-admin" :underline="false" type="primary" target="_blank">
+				https://syzl.net/docs/maku-admin</el-link
 			>
 		</p>
 		<p>
@@ -39,13 +39,13 @@
 		</p>
 
 		<p>
-			演示环境：<el-link href="https://demo.maku.net/maku-boot" :underline="false" type="primary" target="_blank">
-				https://demo.maku.net/maku-boot</el-link
+			演示环境：<el-link href="https://demo.syzl.net/maku-boot" :underline="false" type="primary" target="_blank">
+				https://demo.syzl.net/maku-boot</el-link
 			>
 		</p>
 		<p>
-			开发文档：<el-link href="https://maku.net/docs/maku-boot" :underline="false" type="primary" target="_blank">
-				https://maku.net/docs/maku-boot</el-link
+			开发文档：<el-link href="https://syzl.net/docs/maku-boot" :underline="false" type="primary" target="_blank">
+				https://syzl.net/docs/maku-boot</el-link
 			>
 		</p>
 		<br />
@@ -62,25 +62,25 @@
 			>
 		</p>
 		<p>
-			演示环境：<el-link href="https://demo.maku.net/maku-cloud" :underline="false" type="primary" target="_blank">
-				https://demo.maku.net/maku-cloud</el-link
+			演示环境：<el-link href="https://demo.syzl.net/maku-cloud" :underline="false" type="primary" target="_blank">
+				https://demo.syzl.net/maku-cloud</el-link
 			>
 		</p>
 		<p>
-			开发文档：<el-link href="https://maku.net/docs/maku-cloud" :underline="false" type="primary" target="_blank">
-				https://maku.net/docs/maku-cloud</el-link
+			开发文档：<el-link href="https://syzl.net/docs/maku-cloud" :underline="false" type="primary" target="_blank">
+				https://syzl.net/docs/maku-cloud</el-link
 			>
 		</p>
 		<br />
 
 		<h2>知识星球</h2>
 		<p>如果希望与作者，进行技术交流、解答、探讨等，可以加入我们的知识星球，作者在知识星球等你啊！</p>
-		<el-image src="https://cdn.maku.net/images/zsxq.jpg" style="width: 300px" />
+		<el-image src="https://cdn.syzl.net/images/zsxq.jpg" style="width: 300px" />
 		<br />
 
 		<h2>微信交流群</h2>
 		<p>为了更好的交流，我们新提供了微信交流群，需扫描下面的二维码，关注公众号，回复【加群】，根据提示信息，作者会拉你进群的，感谢配合！</p>
-		<el-image src="https://maku.net/app/img/qrcode.jpg" />
+		<el-image src="https://syzl.net/app/img/qrcode.jpg" />
 		<br />
 
 		<h2>支持</h2>

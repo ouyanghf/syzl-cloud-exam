@@ -9,9 +9,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * spring boot starter AutoConfiguration
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 @Configuration
 @AllArgsConstructor

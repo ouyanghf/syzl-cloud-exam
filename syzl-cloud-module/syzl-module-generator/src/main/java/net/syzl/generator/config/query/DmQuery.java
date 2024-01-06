@@ -5,9 +5,8 @@ import net.syzl.generator.config.DbType;
 
 /**
  * 达梦8 查询
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 public class DmQuery implements AbstractQuery {
 

@@ -10,9 +10,8 @@ import java.sql.SQLException;
 
 /**
  * DB工具类
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 public class DbUtils {
     private static final int CONNECTION_TIMEOUTS_SECONDS = 6;

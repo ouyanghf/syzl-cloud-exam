@@ -7,9 +7,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * 新增模块演示
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 @EnableFeignClients
 @EnableDiscoveryClient

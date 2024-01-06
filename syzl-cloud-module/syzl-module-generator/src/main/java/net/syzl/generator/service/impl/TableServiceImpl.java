@@ -35,9 +35,8 @@ import java.util.stream.Collectors;
 
 /**
  * 数据表
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 @Service
 @AllArgsConstructor

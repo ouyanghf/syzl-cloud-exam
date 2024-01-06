@@ -9,9 +9,8 @@ import java.util.Date;
 
 /**
  * 数据源管理
- *
- * @author 阿沐 babamu@126.com
- * <a href="https://maku.net">MAKU</a>
+ 
+ * 
  */
 @Data
 @TableName("gen_datasource")
