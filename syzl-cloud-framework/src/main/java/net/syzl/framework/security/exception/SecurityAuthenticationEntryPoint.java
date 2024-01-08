@@ -22,8 +22,8 @@ public class SecurityAuthenticationEntryPoint implements AuthenticationEntryPoin
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         response.setContentType("application/json; charset=utf-8");
-        response.setHeader("Access-Control-Allow-Credentials", "true");
-        response.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
+      //  response.setHeader("Access-Control-Allow-Credentials", "true");
+    //    response.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
 
         response.getWriter().print(JsonUtils.toJsonString(Result.error(ErrorCode.UNAUTHORIZED)));
     }
