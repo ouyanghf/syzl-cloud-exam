@@ -17,13 +17,13 @@ spring:
           order: 999999
           predicates:
             - Path=/**
-#        - id: syzl-cloud-new
-#          uri: lb://syzl-cloud-new
-#          order: 1
-#          predicates:
-#            - Path=/**
-#          filters:
-#            - StripPrefix=1
+        - id: syzl-cloud-new
+          uri: lb://syzl-cloud-new
+          order: 1
+          predicates:
+            - Path=/**
+          filters:
+            - StripPrefix=1
     nacos:
       username: @nacos.username@
       password: @nacos.password@
